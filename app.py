@@ -1,9 +1,9 @@
-"""
-Portfolio backend — handles the contact form.
+﻿"""
+Portfolio backend â€” handles the contact form.
 
 Receives {name, email, message} from the React frontend and emails it to
 the site owner via SMTP. Configure credentials in a .env file (see
-.env.example) — never commit real credentials.
+.env.example) â€” never commit real credentials.
 """
 
 import os
@@ -28,7 +28,7 @@ SMTP_PASS = os.getenv("SMTP_PASS")
 TO_EMAIL = os.getenv("TO_EMAIL", SMTP_USER)
 ALLOWED_ORIGINS = [
     origin.strip()
-    for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
+    for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,https://harish-portfolio-client.vercel.app").split(",")
     if origin.strip()
 ]
 
@@ -110,3 +110,4 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+
